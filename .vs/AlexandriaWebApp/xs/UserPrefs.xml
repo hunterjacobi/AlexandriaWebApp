@@ -1,27 +1,29 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
   <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Shared FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Client FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Comment/CommentEdit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Services/Rating/IRatingService.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Models/Comment.cs" Line="16" Column="1" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Comment/CommentCreate.cs" Line="11" Column="43" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Comment/CommentListItem.cs" Line="6" Column="9" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Comment/CommentDetail.cs" Line="10" Column="47" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Comment/CommentEdit.cs" Line="7" Column="16" />
+      <File FileName="AlexandriaWebApp/Server/Services/Rating/IRatingService.cs" Line="16" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AlexandriaWebApp" expanded="True">
             <Node name="AlexandriaWebApp.Server" expanded="True">
-              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Category" expanded="True" />
+                <Node name="Comment" expanded="True" />
+                <Node name="Novel" expanded="True" />
+                <Node name="Rating" expanded="True">
+                  <Node name="IRatingService.cs" selected="True" />
+                </Node>
+              </Node>
             </Node>
             <Node name="AlexandriaWebApp.Shared" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="Comment" expanded="True">
-                  <Node name="CommentEdit.cs" selected="True" />
-                </Node>
+                <Node name="Comment" expanded="True" />
+                <Node name="Rating" expanded="True" />
               </Node>
             </Node>
           </Node>

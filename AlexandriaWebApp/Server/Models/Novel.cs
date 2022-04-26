@@ -18,10 +18,10 @@ namespace AlexandriaWebApp.Server.Models
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
-        public double AverageRating { get; set; }
+        public double? AverageRating { get; set; }
         public virtual Rating Rating { get; set; }
 
-        public string Comments { get; set; }
+        public string? Comments { get; set; }
         public virtual Comment Comment { get; set; }
     }
 }

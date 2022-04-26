@@ -8,7 +8,5 @@ namespace AlexandriaWebApp.Shared.Models.Rating
         [Required]
         [Range(1, 5)]
         public double Ratings { get; set; }
-        [Required]
-        public int NovelId { get; set; }
     }
 }
