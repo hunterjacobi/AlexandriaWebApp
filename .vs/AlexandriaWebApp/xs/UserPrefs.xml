@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
   <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Shared FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Client FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Novel/NovelEdit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Category/CategoryDetail.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelCreate.cs" Line="16" Column="6" />
-      <File FileName="AlexandriaWebApp/Server/Models/Novel.cs" Line="25" Column="1" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelListItem.cs" Line="10" Column="43" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelDetail.cs" Line="15" Column="60" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelEdit.cs" Line="6" Column="9" />
+      <File FileName="AlexandriaWebApp/Server/Models/Category.cs" Line="1" Column="1" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryCreate.cs" Line="11" Column="2" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryEdit.cs" Line="9" Column="41" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryListItem.cs" Line="6" Column="9" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryDetail.cs" Line="7" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,8 +19,8 @@
             </Node>
             <Node name="AlexandriaWebApp.Shared" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="Novel" expanded="True">
-                  <Node name="NovelEdit.cs" selected="True" />
+                <Node name="Category" expanded="True">
+                  <Node name="CategoryDetail.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
