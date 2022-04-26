@@ -7,4 +7,18 @@
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Novel\" />
+    <None Remove="Models\Category\" />
+    <None Remove="Models\Rating\" />
+    <None Remove="Models\Comment\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Novel\" />
+    <Folder Include="Models\Category\" />
+    <Folder Include="Models\Rating\" />
+    <Folder Include="Models\Comment\" />
+  </ItemGroup>
 </Project>

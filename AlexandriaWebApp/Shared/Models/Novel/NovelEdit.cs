@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AlexandriaWebApp.Server.Models
+namespace AlexandriaWebApp.Shared.Models.Novel
 {
-    public class Novel
+    public class NovelEdit
     {
-        [Key]
+        [Required]
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
@@ -13,15 +13,7 @@ namespace AlexandriaWebApp.Server.Models
         public string Author { get; set; }
         [Required]
         public string Description { get; set; }
-
         [Required]
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
-
-        public double AverageRating { get; set; }
-        public virtual Rating Rating { get; set; }
-
-        public string Comments { get; set; }
-        public virtual Comment Comment { get; set; }
     }
 }
