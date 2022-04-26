@@ -1,13 +1,9 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
   <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Shared FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Client FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Category/CategoryDetail.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Models/Rating.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Models/Category.cs" Line="1" Column="1" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryCreate.cs" Line="11" Column="2" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryEdit.cs" Line="9" Column="41" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryListItem.cs" Line="6" Column="9" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Category/CategoryDetail.cs" Line="7" Column="41" />
+      <File FileName="AlexandriaWebApp/Server/Models/Rating.cs" Line="12" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,13 +11,15 @@
           <Node name="AlexandriaWebApp" expanded="True">
             <Node name="AlexandriaWebApp.Server" expanded="True">
               <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Rating.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="AlexandriaWebApp.Shared" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="Category" expanded="True">
-                  <Node name="CategoryDetail.cs" selected="True" />
-                </Node>
+                <Node name="Category" expanded="True" />
+                <Node name="Novel" expanded="True" />
+                <Node name="Rating" expanded="True" />
               </Node>
             </Node>
           </Node>
