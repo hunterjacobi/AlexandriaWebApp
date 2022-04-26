@@ -17,5 +17,10 @@ namespace AlexandriaWebApp.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+
+        public DbSet<Novel> Novels { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
