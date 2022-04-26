@@ -1,0 +1,6 @@
+﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
+  <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Shared FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Client FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.AlexandriaWebApp.Server FirstBuild="True" />
+  <MultiItemStartupConfigurations />
+</Properties>
