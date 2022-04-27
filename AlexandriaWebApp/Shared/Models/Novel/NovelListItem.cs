@@ -7,6 +7,6 @@ namespace AlexandriaWebApp.Shared.Models.Novel
         public string Title { get; set; }
         public string Author { get; set; }
         public string CategoryName { get; set; }
-        public double Rating { get; set; }
+        public double AverageRating { get; set; }
     }
 }

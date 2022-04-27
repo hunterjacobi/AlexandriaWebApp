@@ -10,5 +10,6 @@ namespace AlexandriaWebApp.Server.Models
         [Required]
         [Range(1,5)]
         public double Ratings { get; set; }
+        public int NovelId { get; set; }
     }
 }

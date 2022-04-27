@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AlexandriaWebApp.Shared.Models.Comment;
 
 namespace AlexandriaWebApp.Shared.Models.Novel
 {

@@ -36,9 +36,9 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Services\Novel\" />
-    <Folder Include="Services\Category\" />
-    <Folder Include="Services\Comment\" />
+    <Folder Include="Services\NovelsService\" />
+    <Folder Include="Services\Categories\" />
+    <Folder Include="Services\Comments\" />
     <Folder Include="Services\Rating\" />
   </ItemGroup>
 </Project>
