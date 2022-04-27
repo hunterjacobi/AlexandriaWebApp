@@ -198,13 +198,13 @@
       "mscorlib.dll": "sha256-RvlJgNNOrNqPypkseRqbe69kNd7hnKW0u6Bmt1305d4=",
       "netstandard.dll": "sha256-Ttq9E+RchoLMvC6pS8ktXuaz1r51vG7wSm1emPBPRrk=",
       "System.Private.CoreLib.dll": "sha256-7y7hjQvy9SAXBmGIcqlrFwPQioCDSax5WwjUDJYfRAk=",
-      "AlexandriaWebApp.Shared.dll": "sha256-KedxuTTA+Z\/iUtlIGq9\/R5vE8Qb0CxwvNIsJA829X7k=",
-      "AlexandriaWebApp.Client.dll": "sha256-B3Ca+Y5b2Q3VtbePSKFUHbuc5WK61peet9saayHVqgs="
+      "AlexandriaWebApp.Shared.dll": "sha256-HX+oOkzzSoBwNUjfd6hZbZdVH9srgcs4nZuiywlA9y8=",
+      "AlexandriaWebApp.Client.dll": "sha256-7CoucKlOCj44ZLr44hLoXXHu8d92KrF4hUJ1auil\/LI="
     },
     "lazyAssembly": null,
     "pdb": {
-      "AlexandriaWebApp.Shared.pdb": "sha256-KJYVJ6Rofa4sJeTcigTAXcNwoLySjCUoHWtVkg9N5Us=",
-      "AlexandriaWebApp.Client.pdb": "sha256-h6ALjfJZfBTuzi3QwdJrjW1I99NRy+2ThGFUBEuEIhY="
+      "AlexandriaWebApp.Shared.pdb": "sha256-rd\/KRHoF4ttU\/2MhI\/\/XzntdAxEZu2R+Bs1X50ygm3g=",
+      "AlexandriaWebApp.Client.pdb": "sha256-m4RH0LPATLuWQXIyMwABsumXngZJ7LGxzPJYlnuLDS8="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-jWuZI+z9wt0OfCMj+W5wh3HN+Ye6efC6YfCUWbBHBa8=",

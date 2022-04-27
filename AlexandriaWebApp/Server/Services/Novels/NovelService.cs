@@ -25,8 +25,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
             {
                 Title = model.Title,
                 Author = model.Author,
-                Description = model.Description,
-                CategoryId = model.CategoryId
+                Description = model.Description
             };
 
             _context.Novels.Add(novelEntity);

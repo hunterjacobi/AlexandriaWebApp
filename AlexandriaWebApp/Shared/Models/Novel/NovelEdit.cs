@@ -13,7 +13,6 @@ namespace AlexandriaWebApp.Shared.Models.Novel
         public string Author { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required]
         public int CategoryId { get; set; }
     }
 }

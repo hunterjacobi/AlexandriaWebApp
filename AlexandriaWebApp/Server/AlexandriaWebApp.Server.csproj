@@ -36,7 +36,7 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Services\NovelsService\" />
+    <Folder Include="Services\Novels\" />
     <Folder Include="Services\Categories\" />
     <Folder Include="Services\Comments\" />
     <Folder Include="Services\Rating\" />

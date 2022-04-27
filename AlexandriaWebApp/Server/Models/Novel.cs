@@ -14,14 +14,9 @@ namespace AlexandriaWebApp.Server.Models
         [Required]
         public string Description { get; set; }
 
-        [Required]
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
         public double? AverageRating { get; set; }
-        public virtual Rating Rating { get; set; }
-
-        public string? Comments { get; set; }
-        public virtual Comment Comment { get; set; }
     }
 }
