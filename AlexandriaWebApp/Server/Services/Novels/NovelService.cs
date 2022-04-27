@@ -22,7 +22,8 @@ namespace AlexandriaWebApp.Server.Services.Novels
         public async Task<bool> CreateNovelAsync(NovelCreate model)
         {
             var novelEntity = new Novel
-            {
+            { 
+                OwnerId = _userId,
                 Title = model.Title,
                 Author = model.Author,
                 Description = model.Description
@@ -34,9 +35,14 @@ namespace AlexandriaWebApp.Server.Services.Novels
             return numberOfChanges == 1;
         }
 
-        public Task<bool> DeleteNovelAsync(int novelId)
+        public async Task<bool> DeleteNovelAsync(int novelId)
         {
-            throw new NotImplementedException();
+            var entity = await _context.Novels.FindAsync(novelId);
+            if (entity?.OwnerId != _userId)
+                return false;
+
+            _context.Novels.Remove(entity);
+            return await _context.SaveChangesAsync() == 1;
         }
 
         public async Task<IEnumerable<NovelListItem>> GetAllNovelsAsync()
@@ -73,14 +79,43 @@ namespace AlexandriaWebApp.Server.Services.Novels
             return await novelQuery.ToListAsync();
         }
 
-        public Task<NovelDetail> GetNovelByIdAsync(int novelId)
+        public async Task<NovelDetail> GetNovelByIdAsync(int novelId)
         {
-            throw new NotImplementedException();
+            var novelEntity = await _context
+                .Novels
+                .Include(nameof(Category))
+                .FirstOrDefaultAsync(n => n.Id == novelId);
+
+            if (novelEntity is null)
+                return null;
+
+            var detail = new NovelDetail
+            {
+                Id = novelEntity.Id,
+                Title = novelEntity.Title,
+                Author = novelEntity.Author,
+                Description = novelEntity.Description,
+                AverageRating = novelEntity.AverageRating,
+                CategoryId = novelEntity.Category.Id,
+                CategoryName = novelEntity.Category.Name,
+            };
+
+            return detail;
         }
 
-        public Task<bool> UpdateNovelAsync(NovelEdit model)
+        public async Task<bool> UpdateNovelAsync(NovelEdit model)
         {
-            throw new NotImplementedException();
+            if (model == null) return false;
+            var entity = await _context.Novels.FindAsync(model.Id);
+
+            if (entity?.OwnerId != _userId) return false;
+
+            entity.Title = model.Title;
+            entity.Author = model.Author;
+            entity.Description = model.Description;
+            entity.CategoryId = model.CategoryId;
+
+            return await _context.SaveChangesAsync() == 1;
         }
 
         public void SetUserId(string userId) => _userId = userId;
