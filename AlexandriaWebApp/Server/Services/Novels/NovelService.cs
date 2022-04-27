@@ -118,6 +118,39 @@ namespace AlexandriaWebApp.Server.Services.Novels
             return await _context.SaveChangesAsync() == 1;
         }
 
+        public async Task<IEnumerable<NovelListItem>> GetNovelsByCategoryIdAsync(int categoryId)
+        {
+            var novelQuery = (from n in _context.Novels
+                              where n.CategoryId.Equals(categoryId)
+                              select 
+
+          new NovelListItem
+          {
+              Id = n.Id,
+              Title = n.Title,
+              Author = n.Author,
+              CategoryName = n.Category.Name,
+              AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
+            });
+
+            return await novelQuery.ToListAsync();
+        } 
+
+        public async Task<IEnumerable<NovelListItem>> GetNovelsByHighestRatingAsync()
+        {
+            var novelQuery = _context.Novels.Select(n =>
+           new NovelListItem
+           {
+               Id = n.Id,
+               Title = n.Title,
+               Author = n.Author,
+               CategoryName = n.Category.Name,
+               AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
+            });
+
+            return await novelQuery.OrderBy(a => a.AverageRating).ToListAsync();
+        }
+
         public void SetUserId(string userId) => _userId = userId;
     }
 
