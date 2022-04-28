@@ -48,6 +48,22 @@ namespace AlexandriaWebApp.Server.Controllers
             return novels.ToList();
         }
 
+        //GET NOVELS BY HIGHEST RATING
+        [HttpGet]
+        public async Task<IEnumerable<NovelListItem>> HighestRated()
+        {
+            var novels = await _novelService.GetNovelsByHighestRatingAsync();
+            return novels.ToList();
+        }
+
+        // GET NOVELS BY CATEGORY
+        [HttpGet("{categoryid}")]
+        public async Task<IEnumerable<NovelListItem>> CategoryNovels(int categoryid)
+        {
+            var novels = await _novelService.GetNovelsByCategoryIdAsync(categoryid);
+            return novels.ToList();
+        }
+
         // GET api/values/5
         // GET NOVEL BY NOVEL ID
         [HttpGet("{id}")]
