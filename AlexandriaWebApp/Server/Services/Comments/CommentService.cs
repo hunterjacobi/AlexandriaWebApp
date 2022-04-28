@@ -118,14 +118,48 @@ namespace AlexandriaWebApp.Server.Services.Comments
             return detail;
         }
 
-        public Task<CommentDetail> GetCommentByNovelIdAsync(int novelId)
+        public async Task<IEnumerable<CommentListItem>> GetCommentByNovelIdAsync(int novelId)
         {
-            throw new NotImplementedException();
+            var commentQuery = _context
+                .Comments
+                .Where(n => n.NovelId == novelId)
+                .Select(n =>
+                    new CommentListItem
+                    {
+                        Id = n.Id,
+                        Name = n.Name,
+                        Comments = n.Comments,
+                        IsReview = n.IsReview,
+                        Likes = n.Likes,
+                        UserRating = (from r in _context.Ratings where r.NovelId.Equals(n.NovelId) && r.OwnerId.Equals(n.OwnerId) select r.Ratings).ToList().Average(),
+                        NovelName = n.Novel.Title,
+                        CreatedUtc = n.CreatedUtc,
+                        ModifiedUtc = n.ModifiedUtc
+                    });
+
+            return await commentQuery.ToListAsync();
         }
 
-        public Task<CommentDetail> GetCommentIfTheyAreNovelReviewAsync()
+        public async Task<IEnumerable<CommentListItem>> GetCommentIfTheyAreNovelReviewAsync(int novelId)
         {
-            throw new NotImplementedException();
+            var commentQuery = _context
+                .Comments
+                .Where(n => n.NovelId == novelId && n.IsReview == true)
+                .Select(n =>
+                    new CommentListItem
+                    {
+                        Id = n.Id,
+                        Name = n.Name,
+                        Comments = n.Comments,
+                        IsReview = n.IsReview,
+                        Likes = n.Likes,
+                        UserRating = (from r in _context.Ratings where r.NovelId.Equals(n.NovelId) && r.OwnerId.Equals(n.OwnerId) select r.Ratings).ToList().Average(),
+                        NovelName = n.Novel.Title,
+                        CreatedUtc = n.CreatedUtc,
+                        ModifiedUtc = n.ModifiedUtc
+                    });
+
+            return await commentQuery.ToListAsync();
         }
 
         public async Task<bool> UpdateCommentsAsync(CommentEdit model)

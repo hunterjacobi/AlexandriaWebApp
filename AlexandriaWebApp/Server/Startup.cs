@@ -10,6 +10,10 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using AlexandriaWebApp.Server.Data;
 using AlexandriaWebApp.Server.Models;
+using AlexandriaWebApp.Server.Services.Novels;
+using AlexandriaWebApp.Server.Services.Categories;
+using AlexandriaWebApp.Server.Services.Ratings;
+using AlexandriaWebApp.Server.Services.Comments;
 
 namespace AlexandriaWebApp.Server
 {
@@ -40,6 +44,11 @@ namespace AlexandriaWebApp.Server
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+
+            services.AddScoped<INovelService, NovelService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IRatingService, RatingService>();
+            services.AddScoped<ICommentService, CommentService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

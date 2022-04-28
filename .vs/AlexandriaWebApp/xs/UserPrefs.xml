@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Comment/CommentEdit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Controllers/RatingController.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Services/Comments/ICommentService.cs" Line="15" Column="67" />
-      <File FileName="AlexandriaWebApp/Server/Services/Comments/CommentService.cs" Line="135" Column="46" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Comment/CommentEdit.cs" Line="10" Column="2" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/NovelController.cs" Line="40" Column="10" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/CategoryController.cs" Line="32" Column="1" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/CommentController.cs" Line="39" Column="25" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/RatingController.cs" Line="15" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,29 +15,13 @@
               <Node name="Shared" expanded="True" />
             </Node>
             <Node name="AlexandriaWebApp.Server" expanded="True">
-              <Node name="Areas" expanded="True">
-                <Node name="Identity" expanded="True">
-                  <Node name="Pages" expanded="True">
-                    <Node name="Shared" expanded="True" />
-                  </Node>
-                </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="RatingController.cs" selected="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="Categories" expanded="True" />
                 <Node name="Comments" expanded="True" />
-                <Node name="Novels" expanded="True" />
-                <Node name="Ratings" expanded="True" />
-              </Node>
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-            <Node name="AlexandriaWebApp.Shared" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="Comment" expanded="True">
-                  <Node name="CommentEdit.cs" selected="True" />
-                </Node>
               </Node>
             </Node>
           </Node>
