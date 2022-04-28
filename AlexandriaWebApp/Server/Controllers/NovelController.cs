@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AlexandriaWebApp.Server.Services.Novels;
+using AlexandriaWebApp.Shared.Models.Novel;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,35 +40,72 @@ namespace AlexandriaWebApp.Server.Controllers
             return true;
         }
         // GET: api/values
+        // GET ALL NOVELS
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<NovelListItem>> Index()
         {
-            return new string[] { "value1", "value2" };
+            var novels = await _novelService.GetAllNovelsAsync();
+            return novels.ToList();
         }
 
         // GET api/values/5
+        // GET NOVEL BY NOVEL ID
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Novel(int id)
         {
-            return "value";
+            var novel = await _novelService.GetNovelByIdAsync(id);
+
+            if (novel == null) return NotFound();
+
+            return Ok(novel);
         }
 
         // POST api/values
+        // CREATE A NOVEL
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Create(NovelCreate model)
         {
+            if (model == null) return BadRequest();
+
+            if (!SetUserIdInService()) return Unauthorized();
+
+            bool wasSuccessful = await _novelService.CreateNovelAsync(model);
+
+            if (wasSuccessful) return Ok();
+            else return UnprocessableEntity();
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // UPDATE NOVEL
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> Edit(int id, NovelEdit model)
         {
+            if (!SetUserIdInService()) return Unauthorized();
+
+            if (model == null || !ModelState.IsValid) return BadRequest();
+
+            if (model.Id != id) return BadRequest();
+
+            bool wasSuccessful = await _novelService.UpdateNovelAsync(model);
+
+            if (wasSuccessful) return Ok();
+            return BadRequest();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            if (!SetUserIdInService()) return Unauthorized();
+
+            var novel = await _novelService.GetNovelByIdAsync(id);
+            if (novel == null) return NotFound();
+
+            bool wasSuccessful = await _novelService.DeleteNovelAsync(id);
+
+            if (!wasSuccessful) return BadRequest();
+
+            return Ok();
         }
     }
 }

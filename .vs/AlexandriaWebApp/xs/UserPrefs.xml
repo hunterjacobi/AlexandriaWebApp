@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Controllers/RatingController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Controllers/NovelController.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Controllers/NovelController.cs" Line="40" Column="10" />
-      <File FileName="AlexandriaWebApp/Server/Controllers/CategoryController.cs" Line="32" Column="1" />
-      <File FileName="AlexandriaWebApp/Server/Controllers/CommentController.cs" Line="39" Column="25" />
-      <File FileName="AlexandriaWebApp/Server/Controllers/RatingController.cs" Line="15" Column="1" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/NovelController.cs" Line="102" Column="50" />
+      <File FileName="AlexandriaWebApp/Server/Services/Novels/INovelService.cs" Line="19" Column="6" />
+      <File FileName="AlexandriaWebApp/Server/Services/Novels/NovelService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,12 +15,11 @@
             </Node>
             <Node name="AlexandriaWebApp.Server" expanded="True">
               <Node name="Controllers" expanded="True">
-                <Node name="RatingController.cs" selected="True" />
+                <Node name="NovelController.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
               <Node name="Services" expanded="True">
-                <Node name="Categories" expanded="True" />
-                <Node name="Comments" expanded="True" />
+                <Node name="Novels" expanded="True" />
               </Node>
             </Node>
           </Node>
