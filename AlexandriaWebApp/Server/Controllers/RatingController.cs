@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AlexandriaWebApp.Server.Services.Ratings;
+using AlexandriaWebApp.Shared.Models.Rating;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,17 +40,26 @@ namespace AlexandriaWebApp.Server.Controllers
             return true;
         }
         // GET: api/values
+        // GET RATINGS BY USER
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<List<RatingListItem>> UserRatings()
         {
-            return new string[] { "value1", "value2" };
+            if (!SetUserIdInService()) return null;
+
+            var ratings = await _ratingService.GetAllRatingsByUserAsync();
+            return ratings.ToList();
         }
 
         // GET api/values/5
+        //GET RATING BY ID
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Rating(int id)
         {
-            return "value";
+            var rating = await _ratingService.GetRatingByIdAsync(id);
+
+            if (rating == null) return NotFound();
+
+            return Ok(rating);
         }
 
         // POST api/values

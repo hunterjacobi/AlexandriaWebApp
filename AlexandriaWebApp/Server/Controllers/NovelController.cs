@@ -42,7 +42,7 @@ namespace AlexandriaWebApp.Server.Controllers
         // GET: api/values
         // GET ALL NOVELS
         [HttpGet]
-        public async Task<IEnumerable<NovelListItem>> Index()
+        public async Task<List<NovelListItem>> Index()
         {
             var novels = await _novelService.GetAllNovelsAsync();
             return novels.ToList();
@@ -50,7 +50,7 @@ namespace AlexandriaWebApp.Server.Controllers
 
         //GET NOVELS BY HIGHEST RATING
         [HttpGet]
-        public async Task<IEnumerable<NovelListItem>> HighestRated()
+        public async Task<List<NovelListItem>> HighestRated()
         {
             var novels = await _novelService.GetNovelsByHighestRatingAsync();
             return novels.ToList();
@@ -58,7 +58,7 @@ namespace AlexandriaWebApp.Server.Controllers
 
         // GET NOVELS BY CATEGORY
         [HttpGet("{categoryid}")]
-        public async Task<IEnumerable<NovelListItem>> NovelsInCategory(int categoryid)
+        public async Task<List<NovelListItem>> NovelsInCategory(int categoryid)
         {
             var novels = await _novelService.GetNovelsByCategoryIdAsync(categoryid);
             return novels.ToList();
