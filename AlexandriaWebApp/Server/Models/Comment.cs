@@ -23,5 +23,10 @@ namespace AlexandriaWebApp.Server.Models
 
         public int NovelId { get; set; }
         public virtual Novel Novel { get; set; }
+
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -9,7 +9,10 @@ namespace AlexandriaWebApp.Server.Services.Comments
     {
         Task<IEnumerable<CommentListItem>> GetAllCommentsAsync();
         Task<bool> CreateCommentAsync(CommentCreate model);
+        Task<CommentDetail> GetAllUsersCommentAsync(int commentId);
         Task<CommentDetail> GetCommentByIdAsync(int commentId);
+        Task<CommentDetail> GetCommentByNovelIdAsync(int novelId);
+        Task<CommentDetail> GetCommentIfTheyAreAReviewAsync();
         Task<bool> UpdateCommentsAsync(CommentEdit model);
         Task<bool> DeleteCommentAsync(int commentId);
         void SetUserId(string userId);

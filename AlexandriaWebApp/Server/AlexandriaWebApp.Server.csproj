@@ -39,6 +39,6 @@
     <Folder Include="Services\Novels\" />
     <Folder Include="Services\Categories\" />
     <Folder Include="Services\Comments\" />
-    <Folder Include="Services\Rating\" />
+    <Folder Include="Services\Ratings\" />
   </ItemGroup>
 </Project>
