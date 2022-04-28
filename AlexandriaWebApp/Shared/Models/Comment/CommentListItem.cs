@@ -11,6 +11,6 @@ namespace AlexandriaWebApp.Shared.Models.Comment
         public double? UserRating { get; set; }
         public string NovelName { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? Modified { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

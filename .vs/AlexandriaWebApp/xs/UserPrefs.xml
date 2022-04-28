@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Models/Comment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Comment/CommentEdit.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Models/Comment.cs" Line="30" Column="55" />
-      <File FileName="AlexandriaWebApp/Server/Services/Comments/ICommentService.cs" Line="17" Column="54" />
-      <File FileName="AlexandriaWebApp/Server/Services/Comments/CommentService.cs" Line="13" Column="32" />
+      <File FileName="AlexandriaWebApp/Server/Services/Comments/ICommentService.cs" Line="15" Column="67" />
+      <File FileName="AlexandriaWebApp/Server/Services/Comments/CommentService.cs" Line="135" Column="46" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Comment/CommentEdit.cs" Line="10" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,9 +23,7 @@
               </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Comment.cs" selected="True" />
-              </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="Categories" expanded="True" />
                 <Node name="Comments" expanded="True" />
@@ -36,7 +34,9 @@
             </Node>
             <Node name="AlexandriaWebApp.Shared" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="Comment" expanded="True" />
+                <Node name="Comment" expanded="True">
+                  <Node name="CommentEdit.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
