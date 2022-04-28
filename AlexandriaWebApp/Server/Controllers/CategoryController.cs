@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AlexandriaWebApp.Server.Services.Categories;
+using AlexandriaWebApp.Shared.Models.Category;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,7 +27,7 @@ namespace AlexandriaWebApp.Server.Controllers
             string userIdClaim = User.Claims.First(i => i.Type == ClaimTypes.NameIdentifier).Value;
 
             if (userIdClaim == null) return null;
-
+            
             return userIdClaim;
         }
 
@@ -39,10 +40,12 @@ namespace AlexandriaWebApp.Server.Controllers
             return true;
         }
         // GET: api/values
+        // GET ALL CATEGORIES
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Index()
         {
-            return new string[] { "value1", "value2" };
+            var categories = await _categoryService.GetAllCategoriesAsync();
+            return Ok(categories);
         }
 
         // GET api/values/5
@@ -53,9 +56,17 @@ namespace AlexandriaWebApp.Server.Controllers
         }
 
         // POST api/values
+        //CREATE A CATEGORY
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Create(CategoryCreate model)
         {
+            //if (!SetUserIdInService()) return Unauthorized();
+            if (model == null || !ModelState.IsValid) return BadRequest();
+
+            bool wasSuccessful = await _categoryService.CreateCategoryAsync(model);
+
+            if (wasSuccessful) return Ok();
+            return UnprocessableEntity();
         }
 
         // PUT api/values/5

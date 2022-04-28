@@ -58,7 +58,7 @@ namespace AlexandriaWebApp.Server.Controllers
 
         // GET NOVELS BY CATEGORY
         [HttpGet("{categoryid}")]
-        public async Task<IEnumerable<NovelListItem>> CategoryNovels(int categoryid)
+        public async Task<IEnumerable<NovelListItem>> NovelsInCategory(int categoryid)
         {
             var novels = await _novelService.GetNovelsByCategoryIdAsync(categoryid);
             return novels.ToList();
