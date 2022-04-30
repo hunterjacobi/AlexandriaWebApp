@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AlexandriaWebApp.Server.Services.Comments;
+using AlexandriaWebApp.Shared.Models.Comment;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,35 +40,69 @@ namespace AlexandriaWebApp.Server.Controllers
             return true;
         }
         // GET: api/values
+        // GET ALL COMMENTS
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<List<CommentListItem>> Index()
         {
-            return new string[] { "value1", "value2" };
+            var comments = await _commentService.GetAllCommentsAsync();
+            return comments.ToList();
         }
 
         // GET api/values/5
+        // GET COMMENT BY ID
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Comment(int id)
         {
-            return "value";
+            var comment = await _commentService.GetCommentByIdAsync(id);
+
+            if (comment == null) return NotFound();
+
+            return Ok(comment);
         }
 
         // POST api/values
+        // CREATE A COMMENT
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Create(CommentCreate model)
         {
+            if (model == null) return BadRequest();
+            if (!SetUserIdInService()) return Unauthorized();
+
+            bool wasSuccessful = await _commentService.CreateCommentAsync(model);
+
+            if (wasSuccessful) return Ok();
+            else return UnprocessableEntity();
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        //UPDATE A COMMENT
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> Edit(int id, CommentEdit model)
         {
+            if (!SetUserIdInService()) return Unauthorized();
+            if (model == null || !ModelState.IsValid) return BadRequest();
+
+            if (model.Id != id) return BadRequest();
+
+            bool wasSuccessful = await _commentService.UpdateCommentsAsync(model);
+
+            if (wasSuccessful) return Ok();
+            return BadRequest();
         }
 
         // DELETE api/values/5
+        // DELETE A COMMENT
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            if (!SetUserIdInService()) return Unauthorized();
+            var comment = await _commentService.GetCommentByIdAsync(id);
+            if (comment == null) return NotFound();
+
+            bool wasSuccessful = await _commentService.DeleteCommentAsync(id);
+
+            if (!wasSuccessful) return BadRequest();
+            return Ok();
         }
     }
 }

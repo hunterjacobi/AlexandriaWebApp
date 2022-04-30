@@ -1,10 +1,8 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Controllers/RatingController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Services/Comments/ICommentService.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Controllers/RatingController.cs" Line="71" Column="37" />
-      <File FileName="AlexandriaWebApp/Server/Services/Ratings/IRatingService.cs" Line="14" Column="52" />
-      <File FileName="AlexandriaWebApp/Server/Services/Ratings/RatingService.cs" Line="76" Column="53" />
-      <File FileName="AlexandriaWebApp/Server/Models/Rating.cs" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/CommentController.cs" Line="60" Column="32" />
+      <File FileName="AlexandriaWebApp/Server/Services/Comments/ICommentService.cs" Line="17" Column="54" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,13 +13,13 @@
               <Node name="Shared" expanded="True" />
             </Node>
             <Node name="AlexandriaWebApp.Server" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="RatingController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="Categories" expanded="True" />
-                <Node name="Comments" expanded="True" />
+                <Node name="Comments" expanded="True">
+                  <Node name="ICommentService.cs" selected="True" />
+                </Node>
                 <Node name="Novels" expanded="True" />
                 <Node name="Ratings" expanded="True" />
               </Node>
