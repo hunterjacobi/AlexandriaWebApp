@@ -48,6 +48,16 @@ namespace AlexandriaWebApp.Server.Controllers
             return comments.ToList();
         }
 
+        // GET ALL USERS COMMENTS
+        [HttpGet]
+        public async Task<List<CommentListItem>> UserComments()
+        {
+            if (!SetUserIdInService()) return new List<CommentListItem>();
+
+            var comments = await _commentService.GetAllUsersCommentAsync();
+            return comments.ToList();
+        }
+
         // GET api/values/5
         // GET COMMENT BY ID
         [HttpGet("{id}")]
@@ -59,6 +69,26 @@ namespace AlexandriaWebApp.Server.Controllers
 
             return Ok(comment);
         }
+
+        // GET COMMENTS BY NOVEL ID
+        [HttpGet("{id}")]
+        public async Task<IActionResult> NovelComments(int id)
+        {
+            var comments = await _commentService.GetCommentByNovelIdAsync(id);
+            if (comments == null) return NotFound();
+            return Ok(comments.ToList());
+        }
+
+
+        // GET COMMENT IF IT IS A NOVEL REVIEW
+        [HttpGet("{id}")]
+        public async Task<IActionResult> NovelReviews(int id)
+        {
+            var comments = await _commentService.GetCommentIfTheyAreNovelReviewAsync(id);
+            if (comments == null) return NotFound();
+            return Ok(comments.ToList());
+        }
+
 
         // POST api/values
         // CREATE A COMMENT
