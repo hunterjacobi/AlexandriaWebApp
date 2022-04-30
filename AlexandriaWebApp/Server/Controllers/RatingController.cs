@@ -63,21 +63,48 @@ namespace AlexandriaWebApp.Server.Controllers
         }
 
         // POST api/values
+        // CREATE A RATING
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Create(RatingCreate model)
         {
+            if (model == null) return BadRequest();
+            if (!SetUserIdInService()) return Unauthorized();
+
+            bool wasSuccessful = await _ratingService.CreateRatingAsync(model);
+
+            if (wasSuccessful) return Ok();
+            else return UnprocessableEntity();
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        //UPDATE A RATING
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> Edit(int id, RatingEdit model)
         {
+            if (!SetUserIdInService()) return Unauthorized();
+
+            if (model == null || !ModelState.IsValid) return BadRequest();
+            if (model.Id != id) return BadRequest();
+
+            bool wasSuccessful = await _ratingService.UpdateRatingAsync(model);
+
+            if (wasSuccessful) return Ok();
+            return BadRequest();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            if (!SetUserIdInService()) return Unauthorized();
+
+            var rating = await _ratingService.GetRatingByIdAsync(id);
+            if (rating == null) return NotFound();
+
+            bool wasSuccessful = await _ratingService.DeleteRatingAsync(id);
+
+            if (!wasSuccessful) return BadRequest();
+            return Ok();
         }
     }
 }

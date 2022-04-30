@@ -9,3 +9,4 @@
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Shared/obj/Debug/net5.0/AlexandriaWebApp.Shared.dll
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Shared/obj/Debug/net5.0/ref/AlexandriaWebApp.Shared.dll
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Shared/obj/Debug/net5.0/AlexandriaWebApp.Shared.pdb
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Shared/obj/Debug/net5.0/AlexandriaWebApp.Shared.csproj.AssemblyReference.cache

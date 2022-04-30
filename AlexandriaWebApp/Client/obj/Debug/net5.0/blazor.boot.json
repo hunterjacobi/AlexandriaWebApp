@@ -203,6 +203,7 @@
     },
     "lazyAssembly": null,
     "pdb": {
+      "AlexandriaWebApp.Shared.pdb": "sha256-g5NyafGxOXCugREt9sHwvQ1HV3b1t22nBvgnvqaeo\/Y=",
       "AlexandriaWebApp.Client.pdb": "sha256-zf1AV54h\/HpXSqZe6kzv7mQksCu1GpyxbcEoHkLXfv8="
     },
     "runtime": {
