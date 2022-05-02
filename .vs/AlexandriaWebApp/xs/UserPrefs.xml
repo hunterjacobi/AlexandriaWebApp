@@ -1,22 +1,28 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Server/Controllers/CommentController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Client/Pages/Category/Create.razor">
     <Files>
-      <File FileName="AlexandriaWebApp/Server/Controllers/CommentController.cs" Line="75" Column="27" />
-      <File FileName="AlexandriaWebApp/Server/Services/Comments/ICommentService.cs" Line="8" Column="9" />
-      <File FileName="AlexandriaWebApp/Server/Services/Comments/CommentService.cs" Line="1" Column="1" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/CategoryController.cs" Line="48" Column="35" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Category/Index.razor" Line="5" Column="1" />
+      <File FileName="AlexandriaWebApp/Server/Controllers/NovelController.cs" Line="1" Column="1" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Category/Create.razor" Line="23" Column="1" />
+      <File FileName="AlexandriaWebApp/Client/Shared/NavMenu.razor" Line="38" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AlexandriaWebApp" expanded="True">
             <Node name="AlexandriaWebApp.Client" expanded="True">
-              <Node name="Pages" expanded="True" />
-              <Node name="Shared" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="Category" expanded="True">
+                  <Node name="Create.razor" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Shared" expanded="True">
+                <Node name="NavMenu.razor" expanded="True" />
+              </Node>
             </Node>
             <Node name="AlexandriaWebApp.Server" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="CommentController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="Categories" expanded="True" />

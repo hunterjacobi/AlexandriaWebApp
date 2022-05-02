@@ -19,4 +19,16 @@
     <ProjectReference Include="..\Shared\AlexandriaWebApp.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\Novel\" />
+    <None Remove="Pages\Comment\" />
+    <None Remove="Pages\Rating\" />
+    <None Remove="Pages\Category\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Novel\" />
+    <Folder Include="Pages\Comment\" />
+    <Folder Include="Pages\Rating\" />
+    <Folder Include="Pages\Category\" />
+  </ItemGroup>
 </Project>
