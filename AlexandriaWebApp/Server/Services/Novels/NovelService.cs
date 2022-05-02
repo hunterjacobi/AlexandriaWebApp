@@ -70,6 +70,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
                 Id = n.Id,
                 Title = n.Title,
                 Author = n.Author,
+                CategoryId = n.Category.Id,
                 CategoryName = n.Category.Name,
                 AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
                 //AverageRating = (from r in ratings select r.Ratings).Average()

@@ -1,0 +1,42 @@
+﻿@page "/novel"
+@using AlexandriaWebApp.Shared.Models.Novel
+
+@inject HttpClient http
+
+
+<h3>Novels</h3>
+<a href="/novel/create">Add a new Novel to our Catalog</a>
+
+@if (_novel == null)
+            {
+                <p><em>Loading...</em></p>
+}
+else
+            {
+                <div class="container">
+                    @foreach (var novel in _novel)
+                    {
+                    <a href="novel/{novel.Id}">
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@novel.Title</h5>
+                                    <p class="card-text">By: @novel.Author</p>
+                                    <a class="card-text" href="/Novel/NovelsInCategory/{@novel.CategoryId}">@novel.CategoryName</a>
+                                    <p class="card-text>">Average Rating: @novel.AverageRating</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+                </div>
+            }
+
+@code {
+    private IEnumerable<NovelListItem> _novel;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _novel = await http.GetFromJsonAsync<List<NovelListItem>>("/api/novel");
+    }
+}
