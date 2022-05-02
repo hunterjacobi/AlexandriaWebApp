@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Client/Pages/Novel/Index.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Client/Pages/Novel/Create.razor">
     <Files>
-      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Index.razor" Line="29" Column="31" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Index.razor" Line="9" Column="1" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Create.razor" Line="21" Column="12" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelCreate.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,21 +13,8 @@
               <Node name="Pages" expanded="True">
                 <Node name="Category" expanded="True" />
                 <Node name="Novel" expanded="True">
-                  <Node name="Index.razor" selected="True" />
+                  <Node name="Create.razor" selected="True" />
                 </Node>
-              </Node>
-              <Node name="Shared" expanded="True">
-                <Node name="NavMenu.razor" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="AlexandriaWebApp.Server" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="Categories" expanded="True" />
-                <Node name="Comments" expanded="True" />
-                <Node name="Novels" expanded="True" />
-                <Node name="Ratings" expanded="True" />
               </Node>
             </Node>
             <Node name="AlexandriaWebApp.Shared" expanded="True">
