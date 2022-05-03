@@ -1,0 +1,52 @@
+﻿@page "/novel/{NovelId:int}"
+@using AlexandriaWebApp.Shared.Models.Novel
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+@inject HttpClient http
+
+<h3>@Novel.Title</h3>
+
+@if (Novel != null)
+{
+    <div class="container">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <span>@Novel.Title</span>
+                <span class="text-muted"><strong>@Novel.Author</strong></span>
+            </div>
+            <div class="card-body">
+                <span class="text-muted text-left">
+                    <a href="/Novel/NovelsInCategory/{@Novel.CategoryId}">
+                        <strong>@Novel.CategoryName</strong>
+                    </a>
+                </span>
+                <span class="text-right">Average Rating: @Novel.AverageRating</span>
+                <span>@Novel.Description</span>
+            </div>
+            @if (Novel.OwnerId == _userId)
+                {
+        <div class="card-footer d-flex justify-content-between">
+            <a href=@("$/novel/edit/{Id}") class="btn btn-outline-primary">Edit Novel</a>
+            <a href=@("$/novel/delete/{Id}") class="btn btn-outline-danger">Delete Novel</a>
+        </div>
+                }
+            <a href="/novel">Back to the Catalog</a>
+        </div>
+    </div>
+}
+else
+            {
+                <p>Loading...</p>
+            }
+
+@code {
+    public int NovelId { get; set; }
+    public string _userId { get; set; }
+    public NovelDetail Novel { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Novel = await http.GetFromJsonAsync<NovelDetail>($"/api/novel/{NovelId}");
+    }
+}

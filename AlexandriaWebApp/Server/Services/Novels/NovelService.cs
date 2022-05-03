@@ -99,6 +99,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
                 AverageRating = novelEntity.AverageRating,
                 CategoryId = novelEntity.Category.Id,
                 CategoryName = novelEntity.Category.Name,
+                OwnerId = novelEntity.OwnerId
             };
 
             return detail;

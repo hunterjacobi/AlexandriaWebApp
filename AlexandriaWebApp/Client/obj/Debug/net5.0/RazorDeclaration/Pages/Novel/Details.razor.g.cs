@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace AlexandriaWebApp.Client.Pages
+namespace AlexandriaWebApp.Client.Pages.Novel
 {
     #line hidden
     using System;
@@ -89,8 +89,29 @@ using AlexandriaWebApp.Client.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
-    public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Details.razor"
+using AlexandriaWebApp.Shared.Models.Novel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Details.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Details.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/novel/{NovelId:int}")]
+    public partial class Details : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -98,18 +119,21 @@ using AlexandriaWebApp.Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Counter.razor"
+#line 43 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Details.razor"
        
-    private int currentCount = 0;
+    public int NovelId { get; set; }
+    public string _userId { get; set; }
+    public NovelDetail Novel { get; set; }
 
-    private void IncrementCount()
+    protected override async Task OnInitializedAsync()
     {
-        currentCount++;
+        Novel = await http.GetFromJsonAsync<NovelDetail>($"/api/novel/{NovelId}");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }
 #pragma warning restore 1591

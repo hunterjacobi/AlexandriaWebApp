@@ -414,11 +414,9 @@
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/AlexandriaWebApp.Client.RazorComponent.input.cache
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/App.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Authentication.razor.g.cs
-/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Counter.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Shared/LoginDisplay.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Shared/RedirectToLogin.razor.g.cs
-/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/_Imports.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Shared/MainLayout.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Shared/NavMenu.razor.g.cs
@@ -429,11 +427,9 @@
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/AlexandriaWebApp.Client.RazorCoreGenerate.cache
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/App.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Authentication.razor.g.cs
-/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Counter.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Shared/LoginDisplay.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Shared/RedirectToLogin.razor.g.cs
-/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Shared/SurveyPrompt.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/_Imports.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Shared/MainLayout.razor.g.cs
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Shared/NavMenu.razor.g.cs
@@ -647,3 +643,13 @@
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/AlexandriaWebApp.Client.dll
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/ref/AlexandriaWebApp.Client.dll
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/AlexandriaWebApp.Client.pdb
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Category/Create.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Category/Index.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Novel/Create.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Novel/Details.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Novel/Index.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Category/Create.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Category/Index.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Novel/Create.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Novel/Details.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Novel/Index.razor.g.cs

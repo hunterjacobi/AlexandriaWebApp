@@ -13,5 +13,6 @@ namespace AlexandriaWebApp.Shared.Models.Novel
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public double? AverageRating { get; set; }
+        public string OwnerId { get; set; }
     }
 }

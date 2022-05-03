@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{62FB4DD3-97F6-409D-86E0-007D792047A9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Client/Pages/Novel/Create.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AlexandriaWebApp/Shared/Models/Novel/NovelDetail.cs">
     <Files>
-      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Index.razor" Line="9" Column="1" />
-      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Create.razor" Line="21" Column="12" />
-      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelCreate.cs" Line="1" Column="1" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Index.razor" Line="25" Column="107" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Create.razor" Line="49" Column="1" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Novel/Details.razor" Line="36" Column="11" />
+      <File FileName="AlexandriaWebApp/Server/Services/Novels/NovelService.cs" Line="96" Column="43" />
+      <File FileName="AlexandriaWebApp/Shared/Models/Novel/NovelDetail.cs" Line="17" Column="6" />
+      <File FileName="AlexandriaWebApp/Client/Pages/Index.razor" Line="7" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,14 +15,20 @@
             <Node name="AlexandriaWebApp.Client" expanded="True">
               <Node name="Pages" expanded="True">
                 <Node name="Category" expanded="True" />
-                <Node name="Novel" expanded="True">
-                  <Node name="Create.razor" selected="True" />
-                </Node>
+                <Node name="Novel" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="AlexandriaWebApp.Server" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Novels" expanded="True" />
               </Node>
             </Node>
             <Node name="AlexandriaWebApp.Shared" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="Novel" expanded="True" />
+                <Node name="Novel" expanded="True">
+                  <Node name="NovelDetail.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

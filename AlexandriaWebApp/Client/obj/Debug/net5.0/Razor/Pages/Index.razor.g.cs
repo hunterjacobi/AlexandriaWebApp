@@ -93,9 +93,9 @@ using AlexandriaWebApp.Client.Shared;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.AddMarkupContent(0, "<h1>Hello, world!</h1>\n\nWelcome to your new app.\n\n");
-            __builder.OpenComponent<AlexandriaWebApp.Client.Shared.SurveyPrompt>(1);
+            __builder.OpenElement(1, "SurveyPrompt");
             __builder.AddAttribute(2, "Title", "How is Blazor working for you?");
-            __builder.CloseComponent();
+            __builder.CloseElement();
         }
         #pragma warning restore 1998
     }

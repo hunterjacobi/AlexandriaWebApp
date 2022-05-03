@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace AlexandriaWebApp.Client.Shared
+namespace AlexandriaWebApp.Client.Pages.Novel
 {
     #line hidden
     using System;
@@ -89,7 +89,36 @@ using AlexandriaWebApp.Client.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class SurveyPrompt : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Create.razor"
+using AlexandriaWebApp.Shared.Models.Novel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Create.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Create.razor"
+using AlexandriaWebApp.Shared.Models.Category;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Create.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/novel/create")]
+    public partial class Create : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,15 +126,36 @@ using AlexandriaWebApp.Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 12 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Shared/SurveyPrompt.razor"
+#line 50 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Create.razor"
        
-    // Demonstrates how a parent component can supply parameters
-    [Parameter]
-    public string Title { get; set; }
+    private NovelCreate model = new();
+    private IEnumerable<CategoryListItem> categories;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await http.GetFromJsonAsync<IEnumerable<CategoryListItem>>("/api/category/");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createRes = await http.PostAsJsonAsync<NovelCreate>("/api/novel", model);
+
+        if(createRes.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo("/novel");
+        }
+        else
+        {
+            errorMessage = "Could not add the novel to our catalog. Please try agai later.";
+        }
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }
 #pragma warning restore 1591
