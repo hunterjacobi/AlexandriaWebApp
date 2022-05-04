@@ -1,0 +1,46 @@
+﻿@page "/rating"
+@using AlexandriaWebApp.Shared.Models.Rating
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+@inject HttpClient http
+
+<h3>My Ratings</h3>
+
+@if (_ratings == null)
+            {
+                <p><em>Loading...</em></p>
+}
+else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>My Rating</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var rating in _ratings)
+                {
+                    <tr>
+                        <td><strong>@rating.NovelName</strong></td>
+                        <td>@rating.Ratings</td>
+                        <td>
+                            <a href=@("rating/edit/{rating.Id}")>Edit Rating</a>
+                            <a href=@("rating/delete/{rating.Id}")>Delete Rating</a>
+                        </td>
+                    </tr>
+                }
+                    </tbody>
+                </table>
+            }
+@code {
+    private IEnumerable<RatingListItem> _ratings;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _ratings = await http.GetFromJsonAsync<List<RatingListItem>>("/api/rating");
+    }
+}

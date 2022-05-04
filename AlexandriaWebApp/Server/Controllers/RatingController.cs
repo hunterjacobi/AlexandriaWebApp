@@ -42,7 +42,7 @@ namespace AlexandriaWebApp.Server.Controllers
         // GET: api/values
         // GET RATINGS BY USER
         [HttpGet]
-        public async Task<List<RatingListItem>> UserRatings()
+        public async Task<List<RatingListItem>> Index()
         {
             if (!SetUserIdInService()) return null;
 

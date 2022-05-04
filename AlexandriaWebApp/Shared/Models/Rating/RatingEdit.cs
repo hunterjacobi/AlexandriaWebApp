@@ -12,5 +12,6 @@ namespace AlexandriaWebApp.Shared.Models.Rating
         public double Ratings { get; set; }
 
         public int NovelId { get; set; }
+        public string NovelName { get; set; }
     }
 }

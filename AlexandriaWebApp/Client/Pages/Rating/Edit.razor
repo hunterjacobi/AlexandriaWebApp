@@ -1,0 +1,53 @@
+﻿@page "/rating/edit/{RatingId:int}"
+@using AlexandriaWebApp.Shared.Models.Rating
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+@inject HttpClient http
+@inject NavigationManager navigation
+
+
+<h3>Edit Rating for @Model.NovelName</h3>
+
+@if (ErrorMessage != null)
+            {
+                <h5 class="text-danger">@ErrorMessage</h5>
+            }
+
+<div class="container">
+    <EditForm Model="@Model" OnValidSubmit="@HandleSubmit">
+         <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label>Rating</label>
+            <InputNumber class="form-control" CurrentValue="@Model.Ratings" @bind-Value="Model.Ratings" min="1" max="5" scale="0.5" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-5">Submit</button>
+    </EditForm>
+</div>
+
+@code {
+    [Parameter]
+    public int RatingId { get; set; }
+    private RatingEdit Model { get; set; }
+    private string ErrorMessage { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = await http.GetFromJsonAsync<RatingEdit>($"/api/rating/{RatingId}");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createRes = await http.PutAsJsonAsync<RatingEdit>($"/api/rating/edit/{RatingId}", Model);
+        if(createRes.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo($"/rating/{RatingId}");
+        }
+        else
+        {
+            ErrorMessage = "Could not update your rating right now, please try again later.";
+        }
+    }
+}

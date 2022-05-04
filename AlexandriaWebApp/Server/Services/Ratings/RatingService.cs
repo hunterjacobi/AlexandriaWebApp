@@ -88,6 +88,7 @@ namespace AlexandriaWebApp.Server.Services.Ratings
 
             entity.Ratings = model.Ratings;
             entity.NovelId = model.NovelId;
+            entity.Novel.Title = model.NovelName;
 
             return await _context.SaveChangesAsync() == 1;
         }

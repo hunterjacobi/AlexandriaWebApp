@@ -1,0 +1,75 @@
+﻿@page "/novel/edit{NovelId:int}"
+@using AlexandriaWebApp.Shared.Models.Novel
+@using Microsoft.AspNetCore.Authorization
+@using AlexandriaWebApp.Shared.Models.Category
+
+@attribute [Authorize]
+@inject HttpClient http
+@inject NavigationManager navigation
+
+<h3>Edit Novel: @model.Title</h3>
+@if (errorMessage != null)
+{
+    <h5 class="tet-danger">@errorMessage</h5>
+}
+
+@if (categories == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container">
+        <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Title</label>
+                <InputText class="form-control" @bind-Value="model.Title" />
+            </div>
+            <div class="form-group">
+                <label>Author</label>
+                <InputText class="form-control" @bind-Value="model.Author" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <InputTextArea class="form-control" @bind-Value="model.Description" />
+            </div>
+            <InputSelect class="form-control" @bind-Value="model.CategoryId">
+                @foreach (var category in categories)
+                    {
+                    <option value="@category.Id">@category.Name</option>
+                    }
+            </InputSelect>
+            <button type="submit" class="btn btn-primary btn-block mt-5">Submit</button>
+        </EditForm>
+    </div>
+}
+
+@code {
+    public int NovelId { get; set; }
+    private NovelEdit model { get; set; }
+    private IEnumerable<CategoryListItem> categories { get; set; }
+    private string errorMessage { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        model = await http.GetFromJsonAsync<NovelEdit>($"/api/novel/{NovelId}");
+        categories = await http.GetFromJsonAsync<IEnumerable<CategoryListItem>>("/api/category/");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createRes = await http.PostAsJsonAsync<NovelEdit>("/api/novel/edit/{NovelId}", model);
+
+        if (createRes.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo($"/novel/{NovelId}");
+        }
+        else
+        {
+            errorMessage = "Could not edit the Novel right now. Please try agai later.";
+        }
+    }
+}
