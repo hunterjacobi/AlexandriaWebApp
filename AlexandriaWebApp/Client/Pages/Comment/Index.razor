@@ -21,7 +21,7 @@ else
             <p class="text-left">@comment.NovelName</p>
             <p class="text-right">Rating By User: @comment.UserRating</p>
 
-            @if (comment.IsReview = true)
+            @if (comment.IsReview == true)
                     {
                         <p class="text-muted">This Comment is a review!</p>
                     }

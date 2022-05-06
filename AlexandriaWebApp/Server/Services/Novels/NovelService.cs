@@ -28,7 +28,8 @@ namespace AlexandriaWebApp.Server.Services.Novels
                 OwnerId = _userId,
                 Title = model.Title,
                 Author = model.Author,
-                Description = model.Description
+                Description = model.Description,
+                CategoryId = model.CategoryId
             };
 
             _context.Novels.Add(novelEntity);
