@@ -48,6 +48,7 @@ namespace AlexandriaWebApp.Server.Controllers
             return comments.ToList();
         }
 
+        /*
         // GET ALL USERS COMMENTS
         [HttpGet]
         public async Task<List<CommentListItem>> UserComments()
@@ -57,6 +58,7 @@ namespace AlexandriaWebApp.Server.Controllers
             var comments = await _commentService.GetAllUsersCommentAsync();
             return comments.ToList();
         }
+        */
 
         // GET api/values/5
         // GET COMMENT BY ID
@@ -70,6 +72,7 @@ namespace AlexandriaWebApp.Server.Controllers
             return Ok(comment);
         }
 
+        /*
         // GET COMMENTS BY NOVEL ID
         [HttpGet("{id}")]
         public async Task<IActionResult> NovelComments(int id)
@@ -78,8 +81,9 @@ namespace AlexandriaWebApp.Server.Controllers
             if (comments == null) return NotFound();
             return Ok(comments.ToList());
         }
+        */
 
-
+        /*
         // GET COMMENT IF IT IS A NOVEL REVIEW
         [HttpGet("{id}")]
         public async Task<IActionResult> NovelReviews(int id)
@@ -88,7 +92,7 @@ namespace AlexandriaWebApp.Server.Controllers
             if (comments == null) return NotFound();
             return Ok(comments.ToList());
         }
-
+        */
 
         // POST api/values
         // CREATE A COMMENT
@@ -122,7 +126,7 @@ namespace AlexandriaWebApp.Server.Controllers
 
         // DELETE api/values/5
         // DELETE A COMMENT
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (!SetUserIdInService()) return Unauthorized();

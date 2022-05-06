@@ -21,6 +21,8 @@ namespace AlexandriaWebApp.Server.Services.Novels
 
         public async Task<bool> CreateNovelAsync(NovelCreate model)
         {
+            if (model == null) return false;
+
             var novelEntity = new Novel
             { 
                 OwnerId = _userId,
@@ -30,9 +32,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
             };
 
             _context.Novels.Add(novelEntity);
-            var numberOfChanges = await _context.SaveChangesAsync();
-
-            return numberOfChanges == 1;
+            return await _context.SaveChangesAsync() == 1;
         }
 
         public async Task<bool> DeleteNovelAsync(int novelId)

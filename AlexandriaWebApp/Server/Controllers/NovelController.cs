@@ -49,20 +49,24 @@ namespace AlexandriaWebApp.Server.Controllers
         }
 
         //GET NOVELS BY HIGHEST RATING
+        /*
         [HttpGet]
         public async Task<List<NovelListItem>> HighestRated()
         {
             var novels = await _novelService.GetNovelsByHighestRatingAsync();
             return novels.ToList();
         }
-
+        */
         // GET NOVELS BY CATEGORY
+
+        /*
         [HttpGet("{categoryid}")]
         public async Task<List<NovelListItem>> NovelsInCategory(int categoryid)
         {
             var novels = await _novelService.GetNovelsByCategoryIdAsync(categoryid);
             return novels.ToList();
         }
+        */
 
         // GET api/values/5
         // GET NOVEL BY NOVEL ID
@@ -81,7 +85,7 @@ namespace AlexandriaWebApp.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(NovelCreate model)
         {
-            if (model == null) return BadRequest();
+            if (model == null || !ModelState.IsValid) return BadRequest();
 
             if (!SetUserIdInService()) return Unauthorized();
 
@@ -109,7 +113,7 @@ namespace AlexandriaWebApp.Server.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (!SetUserIdInService()) return Unauthorized();

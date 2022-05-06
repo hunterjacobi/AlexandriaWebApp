@@ -93,7 +93,7 @@ namespace AlexandriaWebApp.Server.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (!SetUserIdInService()) return Unauthorized();
