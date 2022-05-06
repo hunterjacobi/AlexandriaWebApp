@@ -90,13 +90,6 @@ using AlexandriaWebApp.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
-using Microsoft.AspNetCore.Authorization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 13 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
@@ -104,14 +97,35 @@ using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Index.razor"
+#line 2 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Create.razor"
 using AlexandriaWebApp.Shared.Models.Comment;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/comment")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Create.razor"
+using AlexandriaWebApp.Shared.Models.Novel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Create.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Create.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/comment/create")]
+    public partial class Create : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -119,19 +133,35 @@ using AlexandriaWebApp.Shared.Models.Comment;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Index.razor"
-           
-private IEnumerable<CommentListItem> _comments;
+#line 50 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Comment/Create.razor"
+       
+    private CommentCreate model = new();
+    private IEnumerable<NovelListItem> novels;
+    private string errorMessage;
 
-protected override async Task OnInitializedAsync()
-{
-    _comments = await http.GetFromJsonAsync<List<CommentListItem>>("/api/comment");
-}
-    
+    protected override async Task OnInitializedAsync()
+    {
+        novels = await http.GetFromJsonAsync<IEnumerable<NovelListItem>>("/api/novel/");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createRes = await http.PostAsJsonAsync<CommentCreate>("/api/comment", model);
+
+        if(createRes.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo("/comment");
+        }
+        else
+        {
+            errorMessage = "Could not create your Comment, try again later.";
+        }
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }

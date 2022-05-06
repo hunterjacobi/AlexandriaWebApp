@@ -9,8 +9,8 @@ namespace AlexandriaWebApp.Shared.Models.Comment
         public string Name { get; set; }
         [Required]
         public string Comments { get; set; }
-        [Required]
-        public bool IsReview { get; set; }
+        
+        public bool? IsReview { get; set; }
 
         public int NovelId { get; set; }
     }

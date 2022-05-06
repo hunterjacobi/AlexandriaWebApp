@@ -1,0 +1,73 @@
+﻿@page "/comment/create"
+@using AlexandriaWebApp.Shared.Models.Comment
+@using AlexandriaWebApp.Shared.Models.Novel
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+
+@inject HttpClient http
+@inject NavigationManager navigation
+
+<h3>Create a Comment</h3>
+
+@if(errorMessage != null)
+            {
+                <h5 class="text-danger">@errorMessage</h5>
+            }
+
+@if (novels == null)
+            {
+                <p>Loading...</p>
+}
+else
+            {
+<div class="container">
+    <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label>Your name</label>
+            <InputText class="form-control" @bind-Value="model.Name" />
+        </div>
+
+        <div class="form-group">
+            <label>Comments</label>
+            <InputTextArea class="form-control" @bind-Value="model.Comments" />
+        </div>
+
+        <InputSelect class="form-control" @bind-Value="model.NovelId">
+            @foreach (var novel in novels)
+                {
+                <option value="@novel.Id">@novel.Title</option>
+                }
+        </InputSelect>
+
+        <button type="submit" class="btn btn-primary btn-block mt-5">Submit</button>
+    </EditForm>
+</div>
+            }
+
+@code {
+    private CommentCreate model = new();
+    private IEnumerable<NovelListItem> novels;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        novels = await http.GetFromJsonAsync<IEnumerable<NovelListItem>>("/api/novel/");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createRes = await http.PostAsJsonAsync<CommentCreate>("/api/comment", model);
+
+        if(createRes.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo("/comment");
+        }
+        else
+        {
+            errorMessage = "Could not create your Comment, try again later.";
+        }
+    }
+}

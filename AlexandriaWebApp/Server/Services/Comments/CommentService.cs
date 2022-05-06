@@ -27,10 +27,10 @@ namespace AlexandriaWebApp.Server.Services.Comments
                 OwnerId = _userId,
                 Name = model.Name,
                 Comments = model.Comments,
-                IsReview = model.IsReview,
+               // IsReview = model.IsReview,
                 NovelId = model.NovelId,
                 CreatedUtc = DateTimeOffset.Now,
-                UserRating = (from r in _context.Ratings where r.NovelId.Equals(model.NovelId) && r.OwnerId.Equals(_userId) select r.Ratings).ToList().Average()
+                //UserRating = (from r in _context.Ratings where r.NovelId.Equals(model.NovelId) && r.OwnerId.Equals(_userId) select r.Ratings).ToList().Average()
             };
 
             _context.Comments.Add(commentEntity);
@@ -60,7 +60,7 @@ namespace AlexandriaWebApp.Server.Services.Comments
                         Comments = n.Comments,
                         IsReview = n.IsReview,
                         Likes = n.Likes,
-                        UserRating = (from r in _context.Ratings where r.NovelId.Equals(n.NovelId) && r.OwnerId.Equals(n.OwnerId) select r.Ratings).ToList().Average(),
+                       // UserRating = (from r in _context.Ratings where r.NovelId.Equals(n.NovelId) && r.OwnerId.Equals(n.OwnerId) select r.Ratings).ToList().Average(),
                         NovelName = n.Novel.Title,
                         CreatedUtc = n.CreatedUtc,
                         ModifiedUtc = n.ModifiedUtc
@@ -108,7 +108,7 @@ namespace AlexandriaWebApp.Server.Services.Comments
                 Comments = commentEntity.Comments,
                 IsReview = commentEntity.IsReview,
                 Likes = commentEntity.Likes,
-                UserRating = (from r in _context.Ratings where r.NovelId.Equals(commentEntity.NovelId) && r.OwnerId.Equals(commentEntity.OwnerId) select r.Ratings).ToList().Average(),
+               // UserRating = (from r in _context.Ratings where r.NovelId.Equals(commentEntity.NovelId) && r.OwnerId.Equals(commentEntity.OwnerId) select r.Ratings).ToList().Average(),
                 NovelId = commentEntity.Novel.Id,
                 NovelName = commentEntity.Novel.Title,
                 CreatedUtc = commentEntity.CreatedUtc,
@@ -171,7 +171,7 @@ namespace AlexandriaWebApp.Server.Services.Comments
             if (entity?.OwnerId != _userId) return false;
 
             entity.Comments = model.Comments;
-            entity.IsReview = model.IsReview;
+           // entity.IsReview = model.IsReview;
             entity.ModifiedUtc = DateTimeOffset.Now;
 
             return await _context.SaveChangesAsync() == 1;

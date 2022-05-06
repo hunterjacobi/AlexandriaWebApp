@@ -9,27 +9,27 @@
 
 @if (_novel == null)
             {
-                <p><em>Loading...</em></p>
+                <p><em>Please login</em></p>
 }
 else
             {
-                <div class="container">
+                //<div class="container">
                     @foreach (var novel in _novel)
                     {
-                    <a href="novel/{novel.Id}">
+                    <a href=@($"novel/{novel.Id}")>
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">@novel.Title</h5>
                                     <p class="card-text">By: @novel.Author</p>
                                     <a class="card-text" href="/Novel/NovelsInCategory/{@novel.CategoryId}">@novel.CategoryName</a>
-                                    <p class="card-text>">Average Rating: @novel.AverageRating</p>
+                                    <!-- <p class="card-text>">Average Rating: @novel.AverageRating</p>  -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 }
-                </div>
+                //</div>
             }
 
 @code {

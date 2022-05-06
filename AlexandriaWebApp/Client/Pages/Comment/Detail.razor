@@ -1,5 +1,58 @@
-﻿<h3>Component1</h3>
+﻿@page "/comment/{CommentId:int}"
+@using AlexandriaWebApp.Shared.Models.Comment
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject HttpClient http
+
+<h3>Viewing Comment</h3>
+
+@if (comment != null)
+            {
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@comment.Name</h5>
+            <p class="text-left">@comment.NovelName</p>
+            <!-- <p class="text-right">Rating By User: @comment.UserRating</p> -->
+
+            @if (comment.IsReview == true)
+            {
+                <p class="text-muted">This Comment is a review!</p>
+            }
+
+            <p>@comment.Comments</p>
+            @if (comment.ModifiedUtc == null)
+            {
+                <p class="text-left">Posted at: @comment.CreatedUtc</p>
+            }
+            else
+            {
+                <p class="text-left">Edited at: @comment.ModifiedUtc</p>
+            }
+            <p class="text-right">@comment.Likes</p>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between">
+            <a href=@($"/comment/edit/{CommentId}") class="btn btn-outline-primary">Edit Comment</a>
+            <a href=@($"/comment/delete/{CommentId}") class="btn btn-outline-danger">Delete Comment</a>
+        </div>
+
+        <a href="/comment">Back to the Feed</a>
+    </div>
+</div>
+}
+else
+            {
+                <p>Loading...</p>
+            }
 
 @code {
+    [Parameter]
+    public int CommentId { get; set; }
+    public CommentDetail comment { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        comment = await http.GetFromJsonAsync<CommentDetail>($"/api/comment/{CommentId}");
+    }
 }

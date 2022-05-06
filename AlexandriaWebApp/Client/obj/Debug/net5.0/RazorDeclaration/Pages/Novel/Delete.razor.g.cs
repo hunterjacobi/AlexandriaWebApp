@@ -141,7 +141,7 @@ using Microsoft.AspNetCore.Authorization;
 
     private async void HandleClick()
     {
-        var deleteRes = await http.DeleteAsync($"/api/Novel/{NovelId}");
+        var deleteRes = await http.DeleteAsync($"/api/novel/delete/{NovelId}");
 
         if (deleteRes.IsSuccessStatusCode)
         {

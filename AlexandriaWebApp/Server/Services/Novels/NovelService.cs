@@ -73,7 +73,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
                 Author = n.Author,
                 CategoryId = n.Category.Id,
                 CategoryName = n.Category.Name,
-                AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
+               //AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).Sum() != 0 ? (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average() : null
                 //AverageRating = (from r in ratings select r.Ratings).Average()
                 //AverageRating = AvgRating
             }) ;
@@ -133,7 +133,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
               Title = n.Title,
               Author = n.Author,
               CategoryName = n.Category.Name,
-              AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
+              //AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
             });
 
             return await novelQuery.ToListAsync();
@@ -148,7 +148,7 @@ namespace AlexandriaWebApp.Server.Services.Novels
                Title = n.Title,
                Author = n.Author,
                CategoryName = n.Category.Name,
-               AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
+              // AverageRating = (from r in _context.Ratings where r.NovelId.Equals(n.Id) select r.Ratings).ToList().Average()
             });
 
             return await novelQuery.OrderBy(a => a.AverageRating).ToListAsync();

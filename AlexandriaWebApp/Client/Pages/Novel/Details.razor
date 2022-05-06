@@ -1,11 +1,11 @@
 ﻿@page "/novel/{NovelId:int}"
 @using AlexandriaWebApp.Shared.Models.Novel
 @using Microsoft.AspNetCore.Authorization
-
 @attribute [Authorize]
+
 @inject HttpClient http
 
-<h3>@Novel.Title</h3>
+<h3></h3>
 
 @if (Novel != null)
 {
@@ -21,16 +21,15 @@
                         <strong>@Novel.CategoryName</strong>
                     </a>
                 </span>
-                <span class="text-right">Average Rating: @Novel.AverageRating</span>
+                <!-- <span class="text-right">Average Rating: @Novel.AverageRating</span> -->
                 <span>@Novel.Description</span>
             </div>
-            @if (Novel.OwnerId == _userId)
-                {
+            
         <div class="card-footer d-flex justify-content-between">
-            <a href=@("$/novel/edit/{Id}") class="btn btn-outline-primary">Edit Novel</a>
-            <a href=@("$/novel/delete/{Id}") class="btn btn-outline-danger">Delete Novel</a>
+            <a href=@($"/novel/edit/{NovelId}") class="btn btn-outline-primary">Edit Novel</a>
+            <a href=@($"/novel/delete/{NovelId}") class="btn btn-outline-danger">Delete Novel</a>
         </div>
-                }
+                
             <a href="/novel">Back to the Catalog</a>
         </div>
     </div>
@@ -41,8 +40,8 @@ else
             }
 
 @code {
+    [Parameter]
     public int NovelId { get; set; }
-    public string _userId { get; set; }
     public NovelDetail Novel { get; set; }
 
     protected override async Task OnInitializedAsync()

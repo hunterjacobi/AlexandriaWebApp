@@ -133,8 +133,9 @@ using AlexandriaWebApp.Shared.Models.Category;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Edit.razor"
+#line 53 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Edit.razor"
        
+    [Parameter]
     public int NovelId { get; set; }
     private NovelEdit model { get; set; }
     private IEnumerable<CategoryListItem> categories { get; set; }
@@ -148,7 +149,7 @@ using AlexandriaWebApp.Shared.Models.Category;
 
     private async void HandleSubmit()
     {
-        var createRes = await http.PostAsJsonAsync<NovelEdit>("/api/novel/edit/{NovelId}", model);
+        var createRes = await http.PostAsJsonAsync<NovelEdit>($"/api/novel/edit/{NovelId}", model);
 
         if (createRes.IsSuccessStatusCode)
         {
@@ -156,7 +157,7 @@ using AlexandriaWebApp.Shared.Models.Category;
         }
         else
         {
-            errorMessage = "Could not edit the Novel right now. Please try agai later.";
+            errorMessage = "Could not edit the Novel right now. Please try again later.";
         }
     }
 

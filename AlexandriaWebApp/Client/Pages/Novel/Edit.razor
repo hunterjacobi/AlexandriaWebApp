@@ -8,6 +8,8 @@
 @inject NavigationManager navigation
 
 <h3>Edit Novel: @model.Title</h3>
+<p class="text-white">@NovelId</p>
+
 @if (errorMessage != null)
 {
     <h5 class="tet-danger">@errorMessage</h5>
@@ -19,35 +21,37 @@
 }
 else
 {
-    <div class="container">
-        <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
+<div class="container">
+    <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
-            <div class="form-group">
-                <label>Title</label>
-                <InputText class="form-control" @bind-Value="model.Title" />
-            </div>
-            <div class="form-group">
-                <label>Author</label>
-                <InputText class="form-control" @bind-Value="model.Author" />
-            </div>
-            <div class="form-group">
-                <label>Description</label>
-                <InputTextArea class="form-control" @bind-Value="model.Description" />
-            </div>
-            <InputSelect class="form-control" @bind-Value="model.CategoryId">
-                @foreach (var category in categories)
-                    {
-                    <option value="@category.Id">@category.Name</option>
-                    }
-            </InputSelect>
-            <button type="submit" class="btn btn-primary btn-block mt-5">Submit</button>
-        </EditForm>
-    </div>
+        <div class="form-group">
+            <label>Title</label>
+            <InputText class="form-control" @bind-Value="model.Title" />
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <InputText class="form-control" @bind-Value="model.Author" />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <InputTextArea class="form-control" @bind-Value="model.Description" />
+        </div>
+        <InputSelect class="form-control" @bind-Value="model.CategoryId">
+            @foreach (var category in categories)
+                {
+                <option value="@category.Id">@category.Name</option>
+                }
+        </InputSelect>
+        <button type="submit" class="btn btn-primary btn-block mt-5">Submit</button>
+    </EditForm>
+    <a href=@($"/novel/delete/{NovelId}") class="btn btn-outline-danger">Delete Novel</a>
+</div>
 }
 
 @code {
+    [Parameter]
     public int NovelId { get; set; }
     private NovelEdit model { get; set; }
     private IEnumerable<CategoryListItem> categories { get; set; }
@@ -61,7 +65,7 @@ else
 
     private async void HandleSubmit()
     {
-        var createRes = await http.PostAsJsonAsync<NovelEdit>("/api/novel/edit/{NovelId}", model);
+        var createRes = await http.PostAsJsonAsync<NovelEdit>($"/api/novel/edit/{NovelId}", model);
 
         if (createRes.IsSuccessStatusCode)
         {
@@ -69,7 +73,7 @@ else
         }
         else
         {
-            errorMessage = "Could not edit the Novel right now. Please try agai later.";
+            errorMessage = "Could not edit the Novel right now. Please try again later.";
         }
     }
 }

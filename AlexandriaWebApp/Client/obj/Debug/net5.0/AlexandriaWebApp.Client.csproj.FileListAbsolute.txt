@@ -671,3 +671,5 @@
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/AlexandriaWebApp.Client.dll
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/ref/AlexandriaWebApp.Client.dll
 /Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/AlexandriaWebApp.Client.pdb
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Comment/Create.razor.g.cs
+/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/Debug/net5.0/Razor/Pages/Comment/Create.razor.g.cs

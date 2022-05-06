@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="card-footer d-flex justify-content-between">
-        <a href=@("$/novel/edit/{NovelId}") class="btn btn-outline-primary">Edit Novel</a>
+        <a href=@($"/novel/edit/{NovelId}") class="btn btn-outline-primary">Edit Novel</a>
         <a href="#" @onclick="HandleClick" class="btn btn-danger text-white">Delete Novel!</a>
         <a href="/novel">Back to the Catalog</a>
     </div>
@@ -58,7 +58,7 @@ else
 
     private async void HandleClick()
     {
-        var deleteRes = await http.DeleteAsync($"/api/Novel/{NovelId}");
+        var deleteRes = await http.DeleteAsync($"/api/novel/delete/{NovelId}");
 
         if (deleteRes.IsSuccessStatusCode)
         {
