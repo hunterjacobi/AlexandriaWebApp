@@ -1,4 +1,4 @@
-﻿@page "/Category/Index"
+﻿@page "/Category"
 
 @using AlexandriaWebApp.Shared.Models.Category
 @inject HttpClient Http
@@ -27,6 +27,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        categories = await Http.GetFromJsonAsync<List<CategoryListItem>>("Category");
+        categories = await Http.GetFromJsonAsync<List<CategoryListItem>>("/api/Category");
     }
 }

@@ -1334,7 +1334,7 @@
       "outputPath": "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/guccigod/.config/NuGet/NuGet.Config"
+        "/Users/guccigod/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

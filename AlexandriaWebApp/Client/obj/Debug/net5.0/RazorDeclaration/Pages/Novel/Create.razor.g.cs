@@ -90,6 +90,13 @@ using AlexandriaWebApp.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Novel/Create.razor"
 using AlexandriaWebApp.Shared.Models.Novel;
 
@@ -147,7 +154,7 @@ using AlexandriaWebApp.Shared.Models.Category;
         }
         else
         {
-            errorMessage = "Could not add the novel to our catalog. Please try agai later.";
+            errorMessage = "Could not add the novel to our catalog. Please try again later.";
         }
     }
 

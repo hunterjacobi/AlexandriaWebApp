@@ -1,0 +1,53 @@
+﻿@page "/comment/edit/{CommentId:int}"
+@using Microsoft.AspNetCore.Authorization
+@using AlexandriaWebApp.Shared.Models.Comment
+
+@attribute [Authorize]
+
+@inject HttpClient http
+@inject NavigationManager navigation
+
+
+<h3>Edit Comment</h3>
+@if(errorMessage != null)
+            {
+                <h5 class="text-danger">@errorMessage</h5>
+            }
+
+<div class="container">
+    <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label>Comments</label>
+            <InputTextArea class="form-control" @bind-Value="model.Comments" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-5">Submit</button>
+    </EditForm>
+</div>
+@code {
+    [Parameter]
+    public int CommentId { get; set; }
+    private CommentEdit model { get; set; }
+    private string errorMessage { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        model = await http.GetFromJsonAsync<CommentEdit>($"/api/comment/{CommentId}");
+    }
+
+    private async void HandleSubmit()
+    {
+        var editRes = await http.PutAsJsonAsync<CommentEdit>($"/api/comment/edit/{CommentId}", model);
+
+        if (editRes.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo($"/comment/{CommentId}");
+        }
+        else
+        {
+            errorMessage = "Could not edit coment right now";
+        }
+    }
+}

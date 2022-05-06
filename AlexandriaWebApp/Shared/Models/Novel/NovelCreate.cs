@@ -12,5 +12,6 @@ namespace AlexandriaWebApp.Shared.Models.Novel
         [Required]
         public string Description { get; set; }
         public int CategoryId { get; set; }
+        public string OwnerId { get; set; }
     }
 }

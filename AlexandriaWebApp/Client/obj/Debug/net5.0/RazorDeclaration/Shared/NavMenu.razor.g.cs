@@ -83,6 +83,13 @@ using AlexandriaWebApp.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 39 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Shared/NavMenu.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 

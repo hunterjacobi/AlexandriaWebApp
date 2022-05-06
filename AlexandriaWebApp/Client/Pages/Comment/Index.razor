@@ -1,0 +1,52 @@
+﻿@page "/comment"
+@using AlexandriaWebApp.Shared.Models.Comment
+
+@inject HttpClient http
+
+
+<h3>All Comments</h3>
+
+@if (_comments == null)
+            {
+                <p><em>Loading...</em></p>
+}
+else
+            {
+                @foreach (var comment in _comments)
+                {
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@comment.Name</h5>
+            <p class="text-left">@comment.NovelName</p>
+            <p class="text-right">Rating By User: @comment.UserRating</p>
+
+            @if (comment.IsReview = true)
+                    {
+                        <p class="text-muted">This Comment is a review!</p>
+                    }
+
+            <p>@comment.Comments</p>
+            @if (comment.ModifiedUtc != null)
+            {
+                <p class="text-left">Posted at: @comment.CreatedUtc</p>
+            }
+            else
+            {
+                <p class="text-left">Edited at: @comment.ModifiedUtc</p>
+            }
+            <p class="text-right">@comment.Likes</p>
+        </div>
+    </div>
+</div>
+                }
+            }
+
+@code {
+    private IEnumerable<CommentListItem> _comments;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _comments = await http.GetFromJsonAsync<List<CommentListItem>>("/api/comment");
+    }
+}

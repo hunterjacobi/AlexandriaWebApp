@@ -90,6 +90,13 @@ using AlexandriaWebApp.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Shared/RedirectToLogin.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 

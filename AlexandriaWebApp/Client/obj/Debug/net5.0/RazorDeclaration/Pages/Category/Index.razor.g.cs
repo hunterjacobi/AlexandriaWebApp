@@ -90,13 +90,27 @@ using AlexandriaWebApp.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/_Imports.razor"
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "/Users/guccigod/Documents/SD134ImmersionFT/alexandriaAudiobooks/AlexandriaWebApp/AlexandriaWebApp/Client/Pages/Category/Index.razor"
 using AlexandriaWebApp.Shared.Models.Category;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Category/Index")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Category")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,7 +125,7 @@ using AlexandriaWebApp.Shared.Models.Category;
 
     protected override async Task OnInitializedAsync()
     {
-        categories = await Http.GetFromJsonAsync<List<CategoryListItem>>("Category");
+        categories = await Http.GetFromJsonAsync<List<CategoryListItem>>("/api/Category");
     }
 
 #line default
